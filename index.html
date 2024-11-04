@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Supremacía</title>
+    <style>
+        /* Estilos CSS */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            background-color: #f8f8f8;
+        }
+
+        header {
+            background-color: #ff6b6b;
+            padding: 1.5rem;
+            color: #fff;
+            text-align: center;
+        }
+
+        header h1 {
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            padding: 0.5rem 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            background-color: #ffe66d;
+            color: #333;
+            border-radius: 5px;
+        }
+
+        section {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        #menu {
+            background-color: #ffdfdf;
+            padding: 3rem;
+        }
+
+        .category {
+            margin: 1.5rem auto;
+            background-color: #fff3cd;
+            padding: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            width: 80%;
+            max-width: 500px;
+            transition: transform 0.3s ease;
+        }
+
+        .category:hover {
+            transform: scale(1.05);
+            background-color: #fffae3;
+        }
+
+        .category a {
+            color: #333;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        button {
+            background-color: #ff6b6b;
+            color: #fff;
+            padding: 0.7rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #ffe66d;
+            color: #333;
+        }
+
+        #registerForm {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            width: 90%;
+            max-width: 500px;
+            z-index: 10;
+        }
+
+        #registerForm label {
+            display: block;
+            margin: 0.5rem 0 0.2rem;
+            font-weight: bold;
+        }
+
+        #registerForm input {
+            width: 100%;
+            padding: 0.7rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        #registerForm .close-btn {
+            background-color: #333;
+            color: #fff;
+            padding: 0.5rem;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            float: right;
+        }
+
+        #registerForm .back-btn {
+            background-color: #ff6b6b;
+            color: #fff;
+            padding: 0.7rem 1.5rem;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 1rem;
+            width: 100%;
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 5;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>La Supremacía</h1>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#menu">Menú</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#promociones">Promociones</a></li>
+            </ul>
+        </nav>
+        <button onclick="toggleForm()">Registrarse</button>
+    </header>
+
+    <section id="inicio">
+        <h2>Bienvenidos a La Supremacía</h2>
+        <p>Descubre las mejores hamburguesas con el sabor que solo La Supremacía puede ofrecer.</p>
+    </section>
+
+    <section id="menu">
+        <h2>Menú</h2>
+        <div class="category">
+            <a href="carne.html" target="_blank">Hamburguesas de Carne</a>
+        </div>
+        <div class="category">
+            <a href="pollo.html" target="_blank">Hamburguesas de Pollo</a>
+        </div>
+        <div class="category">
+            <a href="vegetales.html" target="_blank">Hamburguesas Vegetales</a>
+        </div>
+    </section>
+
+    <section id="nosotros">
+        <h2>Nosotros</h2>
+        <p>En La Supremacía, nos dedicamos a ofrecer las mejores hamburguesas con ingredientes de alta calidad. Nuestro compromiso es brindarte una experiencia única.</p>
+    </section>
+
+    <section id="promociones">
+        <h2>Promociones</h2>
+        <p>Aprovecha nuestras promociones semanales y disfruta de grandes descuentos.</p>
+    </section>
+
+    <!-- Formulario de Registro -->
+    <div id="registerForm">
+        <button class="close-btn" onclick="toggleForm()">X</button>
+        <h2>Registro de Clientes</h2>
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" placeholder="Ingresa tu nombre">
+        <label for="email">Correo Electrónico:</label>
+        <input type="email" id="email" placeholder="Ingresa tu correo">
+        <label for="phone">Teléfono:</label>
+        <input type="tel" id="phone" placeholder="Ingresa tu teléfono">
+        <button type="submit" class="back-btn" onclick="goBackToMenu()">Enviar y Volver al Menú</button>
+    </div>
+    <div class="overlay" onclick="toggleForm()"></div>
+
+    <script>
+        // JavaScript para abrir/cerrar el formulario de registro
+        function toggleForm() {
+            const form = document.getElementById('registerForm');
+            const overlay = document.querySelector('.overlay');
+            form.style.display = form.style.display === 'block' ? 'none' : 'block';
+            overlay.style.display = overlay.style.display === 'block' ? 'none' : 'block';
+        }
+
+        // Función para regresar al menú
+        function goBackToMenu() {
+            toggleForm();
+            window.location.href = "#menu";
+        }
+    </script>
+
+</body>
+</html>
